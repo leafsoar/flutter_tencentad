@@ -112,8 +112,10 @@ class _BannerAdViewState extends State<BannerAdView> {
         Map map = call.arguments;
         if (mounted) {
           setState(() {
-            _width = map["width"];
-            _height = map["height"];
+            if (map["width"] > 1 && map["height"] > 1) {
+              _width = map["width"];
+              _height = map["height"];
+            }
             _isShowAd = true;
           });
         }
